@@ -1,0 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HoleLogic : MonoBehaviour
+{
+    public float minSpawnCD = 1.0f;
+    public float maxSpawnCD = 2.0f;
+    public GameObject m_Gopher;
+    public float InitLifeTime = 1.0f; //Init lifetime
+    public float LifeTimeGain = 1.0f; //Gain extra lifetime if hit
+    public char HitKey = 'Q';   //Define the keycode
+    public bool DifficultyIncrease = true;
+    public float IncreaseDiffBySeconds = 10.0f;
+    public float IncreaseTimeScale = 0.8f;
+
+    float spawnCD;
+    // Start is called before the first frame update
+    void Start()
+    {
+        spawnCD = Random.Range(minSpawnCD, maxSpawnCD);
+        spawnCD += Random.Range(0, maxSpawnCD);
+        spawnCD %= maxSpawnCD;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (spawnCD <= 0)
+        {
+            GameObject m_gopher = Instantiate(m_Gopher, transform.position, Quaternion.identity);
+            GopherLogic m_gopherLogic = m_gopher.GetComponent<GopherLogic>();
+            m_gopherLogic.GopherSetup(InitLifeTime, LifeTimeGain, HitKey);
+            spawnCD = Random.Range(minSpawnCD, maxSpawnCD);
+        }
+        else
+        {
+            spawnCD -= Time.deltaTime;
+        }
+        if (DifficultyIncrease)
+            InvokeRepeating("IncreaseDifficulty", 0f, IncreaseDiffBySeconds);
+    }
+
+    void IncreaseDifficulty()
+    {
+        if (minSpawnCD > 2)
+        {
+            minSpawnCD *= IncreaseTimeScale;
+            maxSpawnCD = Mathf.Max(maxSpawnCD * IncreaseTimeScale, minSpawnCD + 1.0f);
+        }
+    }
+}

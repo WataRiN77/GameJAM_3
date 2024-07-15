@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: MapLow
+    uniqueID: 3104474595
+    locked: 0
+  - name: MapMid
+    uniqueID: 119648523
+    locked: 0
+  - name: MapHigh
+    uniqueID: 2668717791
+    locked: 0
+  - name: SpritsLow
+    uniqueID: 3270289323
+    locked: 0
+  - name: SpritsHigh
+    uniqueID: 911897053
+    locked: 0
+  - name: UILow
+    uniqueID: 3908552087
+    locked: 0
+  - name: UIHigh
+    uniqueID: 2822953541
+    locked: 0
