@@ -21,6 +21,7 @@ public class HoleLogic : MonoBehaviour
         spawnCD = Random.Range(minSpawnCD, maxSpawnCD);
         spawnCD += Random.Range(0, maxSpawnCD);
         spawnCD %= maxSpawnCD;
+        InvokeRepeating("IncreaseDifficulty", 0f, IncreaseDiffBySeconds);
     }
 
     // Update is called once per frame
@@ -37,16 +38,16 @@ public class HoleLogic : MonoBehaviour
         {
             spawnCD -= Time.deltaTime;
         }
-        if (DifficultyIncrease)
-            InvokeRepeating("IncreaseDifficulty", 0f, IncreaseDiffBySeconds);
     }
 
     void IncreaseDifficulty()
     {
-        if (minSpawnCD > 2)
-        {
-            minSpawnCD *= IncreaseTimeScale;
-            maxSpawnCD = Mathf.Max(maxSpawnCD * IncreaseTimeScale, minSpawnCD + 1.0f);
-        }
+        Debug.Log("111");
+        if (DifficultyIncrease)
+            if (minSpawnCD > 2)
+            {
+                minSpawnCD *= IncreaseTimeScale;
+                maxSpawnCD = Mathf.Max(maxSpawnCD * IncreaseTimeScale, minSpawnCD + 1.0f);
+            }
     }
 }

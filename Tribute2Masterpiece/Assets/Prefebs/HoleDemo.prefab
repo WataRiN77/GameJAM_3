@@ -97,12 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c832008f550cb4cbb1055614a70bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnCD: 5
-  maxSpawnCD: 10
+  minSpawnCD: 10
+  maxSpawnCD: 15
   m_Gopher: {fileID: 1042847176190304757, guid: 9b99e625e5cc8ee438edfffa4192ec68, type: 3}
   InitLifeTime: 1
   LifeTimeGain: 1
   HitKey: 81
   DifficultyIncrease: 1
-  IncreaseDiffBySeconds: 10
+  IncreaseDiffBySeconds: 30
   IncreaseTimeScale: 0.8
