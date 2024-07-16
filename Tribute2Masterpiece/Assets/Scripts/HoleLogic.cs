@@ -14,6 +14,8 @@ public class HoleLogic : MonoBehaviour
     public float IncreaseDiffBySeconds = 10.0f;
     public float IncreaseTimeScale = 0.8f;
 
+    public GameManager GM;
+
     float spawnCD;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class HoleLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnCD <= 0)
+        if (spawnCD <= 0 /*NEW added*/&& !GM.GameEnd)
         {
             GameObject m_gopher = Instantiate(m_Gopher, transform.position, Quaternion.identity);
             GopherLogic m_gopherLogic = m_gopher.GetComponent<GopherLogic>();

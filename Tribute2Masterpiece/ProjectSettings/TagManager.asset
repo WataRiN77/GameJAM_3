@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerA
   - PlayerB
+  - GameMgr
   layers:
   - Default
   - TransparentFX

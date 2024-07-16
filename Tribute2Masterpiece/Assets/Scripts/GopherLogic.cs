@@ -26,6 +26,8 @@ public class GopherLogic : MonoBehaviour
     GameObject PlayerA; // Using KEYBOARD
     GameObject PlayerB; // Using MOUSE
     Vector3 mousePos;
+    GameObject GameMgr;
+    GameManager GM;
 /*NEW added*/
 
     // Start is called before the first frame update
@@ -39,6 +41,9 @@ public class GopherLogic : MonoBehaviour
         PlayerB = GameObject.FindWithTag("PlayerB");
         PAL = PlayerA.GetComponent<PlayerALogic>();
         PBL = PlayerB.GetComponent<PlayerBLogic>();
+
+        GameMgr = GameObject.FindWithTag("GameMgr");
+        GM = GameMgr.GetComponent<GameManager>();
 /*NEW added*/
 
     }
@@ -92,6 +97,7 @@ public class GopherLogic : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        GM.Score = GM.Score + 1;
     }
     void StateHandler()
     {
