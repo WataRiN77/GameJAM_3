@@ -20,12 +20,29 @@ public class GopherLogic : MonoBehaviour
     char HitKey = 'Q';   //Define the keycode
     SpriteRenderer m_spriteRenderer;
 
+/*NEW added*/
+    GopherOnClick GOC;
+    PlayerALogic PAL;
+    PlayerBLogic PBL;
+    GameObject PlayerA; // Using KEYBOARD
+    GameObject PlayerB; // Using MOUSE
+    Vector3 mousePos;
+/*NEW added*/
 
     // Start is called before the first frame update
     void Start()
     {
         m_life = InitLifeTime;
         m_spriteRenderer = GetComponent<SpriteRenderer>();
+
+/*NEW added*/
+        GOC = GetComponent<GopherOnClick>();
+        PlayerA = GameObject.FindWithTag("PlayerA");
+        PlayerB = GameObject.FindWithTag("PlayerB");
+        PAL = PlayerA.GetComponent<PlayerALogic>();
+        PBL = PlayerB.GetComponent<PlayerBLogic>();
+/*NEW added*/
+
     }
 
     // Update is called once per frame
@@ -35,10 +52,28 @@ public class GopherLogic : MonoBehaviour
         {
             m_state = GopherState.Miss;
         }
-        if (Input.GetKeyDown(KeyCode.None + 32 + HitKey) && m_state != GopherState.Dead)
+        if (Input.GetKeyDown(KeyCode.None + 32 + HitKey) && m_state != GopherState.Dead /*NEW added*/&& PAL.timer <= Time.deltaTime)
         {
             BeHit();
         }
+
+/*NEW added*/
+        if (Input.GetMouseButtonDown(0)) // LeftClick
+        {
+            // Mouse Position
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = new Vector3(mousePos.x, mousePos.y, 0f);
+            if(Vector3.Distance(mousePos, this.gameObject.GetComponent<Transform>().position) <= PBL.tolerance && PBL.timer <= Time.deltaTime)
+            {
+                BeHit();
+            }
+        }
+
+        if (GOC.CanBeClicked && GOC.Clicked && PBL.playerAvailable)
+        {
+            BeHit();
+        }
+/*NEW added*/
 
         m_life -= Time.deltaTime;
 
