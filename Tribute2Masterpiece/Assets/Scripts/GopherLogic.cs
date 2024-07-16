@@ -21,7 +21,6 @@ public class GopherLogic : MonoBehaviour
     SpriteRenderer m_spriteRenderer;
 
 /*NEW added*/
-    GopherOnClick GOC;
     PlayerALogic PAL;
     PlayerBLogic PBL;
     GameObject PlayerA; // Using KEYBOARD
@@ -36,7 +35,6 @@ public class GopherLogic : MonoBehaviour
         m_spriteRenderer = GetComponent<SpriteRenderer>();
 
 /*NEW added*/
-        GOC = GetComponent<GopherOnClick>();
         PlayerA = GameObject.FindWithTag("PlayerA");
         PlayerB = GameObject.FindWithTag("PlayerB");
         PAL = PlayerA.GetComponent<PlayerALogic>();
@@ -67,11 +65,6 @@ public class GopherLogic : MonoBehaviour
             {
                 BeHit();
             }
-        }
-
-        if (GOC.CanBeClicked && GOC.Clicked && PBL.playerAvailable)
-        {
-            BeHit();
         }
 /*NEW added*/
 

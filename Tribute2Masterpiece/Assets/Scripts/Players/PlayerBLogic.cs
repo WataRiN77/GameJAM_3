@@ -58,7 +58,7 @@ public class PlayerBLogic : MonoBehaviour
 
     public PlayerManager PM;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool playerAvailable = true;
 
     void Start()
