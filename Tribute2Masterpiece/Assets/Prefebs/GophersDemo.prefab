@@ -29,10 +29,11 @@ RectTransform:
   m_GameObject: {fileID: 1042847176190304757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -3.4558992}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -77,11 +78,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 911897053
-  m_SortingLayer: 5
+  m_SortingLayerID: 119648523
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.7169812, g: 0.46892008, b: 0.011273216, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c2e557bce725847d1a52a29be7af0065, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,6 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5d472af91ac0840bbba613ef6b1741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeAfterDeath: 0.5
+  m_idleSprite: {fileID: 21300000, guid: c2e557bce725847d1a52a29be7af0065, type: 3}
+  m_hitBlueSprite: {fileID: 21300000, guid: a2540ff025014442da9fdb8f875fc29a, type: 3}
+  m_hitOrangeSprite: {fileID: 21300000, guid: db84599d6c43c4cf5b73e4d9cc28e30c, type: 3}
+  m_DieSprite: {fileID: 21300000, guid: 1e8a82e30b8bb4522949a78af35a79b1, type: 3}
+  m_missSFX: {fileID: 3994284258380706332, guid: 73c2c3154250d1947baae9a2d5524825, type: 3}
+  m_hitSFX: {fileID: 6600337252343404280, guid: 21ed7bee340dff54a888bc0523cacd6e, type: 3}
+  m_dieSFX: {fileID: 3035879105516880963, guid: 0c1be83bbcdbfb3439aab270413584fe, type: 3}
 --- !u!223 &5247734156660485184
 Canvas:
   m_ObjectHideFlags: 0
@@ -120,9 +129,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

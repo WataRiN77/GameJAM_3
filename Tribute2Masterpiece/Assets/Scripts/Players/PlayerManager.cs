@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,13 @@ public class PlayerManager : MonoBehaviour
     public GameObject PlayerA; // Using KEYBOARD
     public GameObject PlayerB; // Using MOUSE
 
-    private Transform posA; // Get Coordinates for POSITION
-    private Transform posB;
+    [HideInInspector]
+    public Transform posA; // Get Coordinates for POSITION
+    [HideInInspector]
+    public Transform posB;
 
     Vector3 InitPosA = new Vector3(-4.5f, 0f, 0f); // Initial Positions of 2 Player
-    Vector3 InitPosB = new Vector3( 4.5f, 0f, 0f);
+    Vector3 InitPosB = new Vector3(4.5f, 0f, 0f);
 
     SpriteRenderer sprdA;
     SpriteRenderer sprdB;
@@ -23,9 +26,12 @@ public class PlayerManager : MonoBehaviour
     private Color colorA;
     private Color colorB;
 
-    public  float delayTime = 0.5f;
-    private float timer     = 0f;
+    public float delayTime = 0.5f;
+    private float timer = 0f;
 
+    public GameObject SoundManager;
+    private SoundManager soundManager;
+    //private Vector3 originalCameraPosition;
 
     void Start()
     {
@@ -38,25 +44,31 @@ public class PlayerManager : MonoBehaviour
         sprdB = PlayerB.GetComponent<SpriteRenderer>();
         colorA = sprdA.color;
         colorB = sprdB.color;
+        soundManager = SoundManager.GetComponent<SoundManager>();
+        //originalCameraPosition = new Vector3(0f, 0f, -10f);
     }
 
     void Update()
     {
-        if((posB.position.x - posA.position.x == 2) && (posB.position.y == posA.position.y))
+        if ((posB.position.x - posA.position.x == 2) && (posB.position.y == posA.position.y))
         {
             playerSmash = true;
+            soundManager.PlayerBoom();//������
         }
 
-        if(!playerSmash) timer = 0f;
+        if (!playerSmash) timer = 0f;
         else
         {
+            
             sprdA.color = greyColor;
             sprdB.color = greyColor;
-
-            if(timer <= delayTime) timer += Time.deltaTime;
+            // Debug.Log(delayTime);
+            if (timer <= delayTime) timer += Time.deltaTime;
             else
             {
                 playerSmash = false;
+                soundManager.Boom.SetActive(false);
+                soundManager.reCarema();
                 sprdA.color = colorA;
                 sprdB.color = colorB;
             }

@@ -140,17 +140,22 @@ public class PlayerBLogic : MonoBehaviour
         reset();
     }
 
+    private float ChebyshevDistance(Vector3 pointA, Vector3 pointB)
+    {
+        return Mathf.Max(Mathf.Abs(pointA.x - pointB.x), Mathf.Abs(pointA.y - pointB.y));
+    }
+
     private void CalcDistance(float tolerance)
     {
-        clickQ = (Vector3.Distance(mousePos, holeQ) <= tolerance);
-        clickW = (Vector3.Distance(mousePos, holeW) <= tolerance);
-        clickE = (Vector3.Distance(mousePos, holeE) <= tolerance);
-        clickA = (Vector3.Distance(mousePos, holeA) <= tolerance);
-        clickS = (Vector3.Distance(mousePos, holeS) <= tolerance);
-        clickD = (Vector3.Distance(mousePos, holeD) <= tolerance);
-        clickZ = (Vector3.Distance(mousePos, holeZ) <= tolerance);
-        clickX = (Vector3.Distance(mousePos, holeX) <= tolerance);
-        clickC = (Vector3.Distance(mousePos, holeC) <= tolerance);
+        clickQ = (ChebyshevDistance(mousePos, holeQ + Vector3.up * 1f) <= tolerance);
+        clickW = (ChebyshevDistance(mousePos, holeW + Vector3.up * 1f) <= tolerance);
+        clickE = (ChebyshevDistance(mousePos, holeE + Vector3.up * 1f) <= tolerance);
+        clickA = (ChebyshevDistance(mousePos, holeA + Vector3.up * 1f) <= tolerance);
+        clickS = (ChebyshevDistance(mousePos, holeS + Vector3.up * 1f) <= tolerance);
+        clickD = (ChebyshevDistance(mousePos, holeD + Vector3.up * 1f) <= tolerance);
+        clickZ = (ChebyshevDistance(mousePos, holeZ + Vector3.up * 1f) <= tolerance);
+        clickX = (ChebyshevDistance(mousePos, holeX + Vector3.up * 1f) <= tolerance);
+        clickC = (ChebyshevDistance(mousePos, holeC + Vector3.up * 1f) <= tolerance);
     }
 
     private void reset()

@@ -31,7 +31,8 @@ public class HoleLogic : MonoBehaviour
     {
         if (spawnCD <= 0 /*NEW added*/&& !GM.GameEnd)
         {
-            GameObject m_gopher = Instantiate(m_Gopher, transform.position, Quaternion.identity);
+            Vector3 spawnPosition = transform.position + Vector3.up * 1f;
+            GameObject m_gopher = Instantiate(m_Gopher, spawnPosition, Quaternion.identity);
             GopherLogic m_gopherLogic = m_gopher.GetComponent<GopherLogic>();
             m_gopherLogic.GopherSetup(InitLifeTime, LifeTimeGain, HitKey);
             spawnCD = Random.Range(minSpawnCD, maxSpawnCD);
@@ -44,7 +45,7 @@ public class HoleLogic : MonoBehaviour
 
     void IncreaseDifficulty()
     {
-        Debug.Log("111");
+        // Debug.Log("111");
         if (DifficultyIncrease)
             if (minSpawnCD > 2)
             {

@@ -38,15 +38,15 @@ public class PlayerALogic : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q) && canMove && (!PM.playerSmash)) p_Transform.position = PosQ;
-        if(Input.GetKeyDown(KeyCode.W) && canMove && (!PM.playerSmash)) p_Transform.position = PosW;
-        if(Input.GetKeyDown(KeyCode.E) && canMove && (!PM.playerSmash)) p_Transform.position = PosE;
-        if(Input.GetKeyDown(KeyCode.A) && canMove && (!PM.playerSmash)) p_Transform.position = PosA;
-        if(Input.GetKeyDown(KeyCode.S) && canMove && (!PM.playerSmash)) p_Transform.position = PosS;
-        if(Input.GetKeyDown(KeyCode.D) && canMove && (!PM.playerSmash)) p_Transform.position = PosD;
-        if(Input.GetKeyDown(KeyCode.Z) && canMove && (!PM.playerSmash)) p_Transform.position = PosZ;
-        if(Input.GetKeyDown(KeyCode.X) && canMove && (!PM.playerSmash)) p_Transform.position = PosX;
-        if(Input.GetKeyDown(KeyCode.C) && canMove && (!PM.playerSmash)) p_Transform.position = PosC;
+        if(Input.GetKeyDown(KeyCode.Keypad7) && canMove && (!PM.playerSmash)) p_Transform.position = PosQ;
+        if(Input.GetKeyDown(KeyCode.Keypad8) && canMove && (!PM.playerSmash)) p_Transform.position = PosW;
+        if(Input.GetKeyDown(KeyCode.Keypad9) && canMove && (!PM.playerSmash)) p_Transform.position = PosE;
+        if(Input.GetKeyDown(KeyCode.Keypad4) && canMove && (!PM.playerSmash)) p_Transform.position = PosA;
+        if(Input.GetKeyDown(KeyCode.Keypad5) && canMove && (!PM.playerSmash)) p_Transform.position = PosS;
+        if(Input.GetKeyDown(KeyCode.Keypad6) && canMove && (!PM.playerSmash)) p_Transform.position = PosD;
+        if(Input.GetKeyDown(KeyCode.Keypad1) && canMove && (!PM.playerSmash)) p_Transform.position = PosZ;
+        if(Input.GetKeyDown(KeyCode.Keypad2) && canMove && (!PM.playerSmash)) p_Transform.position = PosX;
+        if(Input.GetKeyDown(KeyCode.Keypad3) && canMove && (!PM.playerSmash)) p_Transform.position = PosC;
 
         if(canMove) timer = 0f; // Reset Timer
 
